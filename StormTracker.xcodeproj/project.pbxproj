@@ -13,6 +13,12 @@
 		047617BA264181F30030F231 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047617B8264181F30030F231 /* Main.storyboard */; };
 		047617BC264181F60030F231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047617BB264181F60030F231 /* Assets.xcassets */; };
 		047617BF264181F60030F231 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047617BD264181F60030F231 /* LaunchScreen.storyboard */; };
+		047617D026418CFB0030F231 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617CF26418CFB0030F231 /* DayViewController.swift */; };
+		047617D326418DCD0030F231 /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617D226418DCD0030F231 /* WeekViewController.swift */; };
+		047617D6264191500030F231 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617D5264191500030F231 /* UIViewController.swift */; };
+		047617D8264192630030F231 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617D7264192630030F231 /* UIStoryboard.swift */; };
+		047617DB2641AAF30030F231 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617DA2641AAF30030F231 /* WeatherRequest.swift */; };
+		047617DE2641B1C50030F231 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617DD2641B1C50030F231 /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		047617BB264181F60030F231 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		047617BE264181F60030F231 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047617C0264181F60030F231 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		047617CF26418CFB0030F231 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		047617D226418DCD0030F231 /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
+		047617D5264191500030F231 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		047617D7264192630030F231 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		047617DA2641AAF30030F231 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
+		047617DD2641B1C50030F231 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +68,12 @@
 		047617B1264181F30030F231 /* StormTracker */ = {
 			isa = PBXGroup;
 			children = (
+				047617DC2641B12A0030F231 /* Configuration */,
+				047617D92641AAD20030F231 /* Models */,
 				047617C6264181FE0030F231 /* Application Delegate */,
 				047617C7264182260030F231 /* View Controllers */,
 				047617C9264183770030F231 /* Storyboards */,
+				047617D4264190D80030F231 /* Extensions */,
 				047617CA2641839B0030F231 /* Resources */,
 				047617CB264183B00030F231 /* Supporting Files */,
 			);
@@ -78,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				047617C8264182500030F231 /* Root View Controller */,
+				047617CD26418CBA0030F231 /* Weather View Controllers */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -113,6 +129,56 @@
 				047617C0264181F60030F231 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		047617CD26418CBA0030F231 /* Weather View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				047617D126418DBA0030F231 /* Week View Controller */,
+				047617CE26418CCA0030F231 /* Day View Controller */,
+			);
+			path = "Weather View Controllers";
+			sourceTree = "<group>";
+		};
+		047617CE26418CCA0030F231 /* Day View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				047617CF26418CFB0030F231 /* DayViewController.swift */,
+			);
+			path = "Day View Controller";
+			sourceTree = "<group>";
+		};
+		047617D126418DBA0030F231 /* Week View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				047617D226418DCD0030F231 /* WeekViewController.swift */,
+			);
+			path = "Week View Controller";
+			sourceTree = "<group>";
+		};
+		047617D4264190D80030F231 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				047617D5264191500030F231 /* UIViewController.swift */,
+				047617D7264192630030F231 /* UIStoryboard.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		047617D92641AAD20030F231 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				047617DA2641AAF30030F231 /* WeatherRequest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		047617DC2641B12A0030F231 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				047617DD2641B1C50030F231 /* Configuration.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,9 +251,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047617DB2641AAF30030F231 /* WeatherRequest.swift in Sources */,
+				047617D326418DCD0030F231 /* WeekViewController.swift in Sources */,
 				047617B7264181F30030F231 /* RootViewController.swift in Sources */,
+				047617DE2641B1C50030F231 /* Configuration.swift in Sources */,
+				047617D6264191500030F231 /* UIViewController.swift in Sources */,
 				047617B3264181F30030F231 /* AppDelegate.swift in Sources */,
 				047617B5264181F30030F231 /* SceneDelegate.swift in Sources */,
+				047617D026418CFB0030F231 /* DayViewController.swift in Sources */,
+				047617D8264192630030F231 /* UIStoryboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
