@@ -75,8 +75,7 @@ final class RootViewController: UIViewController {
     
     private func fetchWeatherData() {
         
-        let weatherRequest = WeatherRequest(longitude: Defaults.longitude,
-                                            latitude: Defaults.latitude)
+        let weatherRequest = WeatherRequest(location: Defaults.location)
         
         let request = NSMutableURLRequest(url: NSURL(string: weatherRequest.baseURLWithLocation)! as URL,
                                           cachePolicy: .useProtocolCachePolicy,

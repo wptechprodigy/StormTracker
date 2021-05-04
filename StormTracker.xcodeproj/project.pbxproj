@@ -68,10 +68,10 @@
 		047617B1264181F30030F231 /* StormTracker */ = {
 			isa = PBXGroup;
 			children = (
-				047617DC2641B12A0030F231 /* Configuration */,
 				047617D92641AAD20030F231 /* Models */,
 				047617C6264181FE0030F231 /* Application Delegate */,
 				047617C7264182260030F231 /* View Controllers */,
+				047617DC2641B12A0030F231 /* Configuration */,
 				047617C9264183770030F231 /* Storyboards */,
 				047617D4264190D80030F231 /* Extensions */,
 				047617CA2641839B0030F231 /* Resources */,
