@@ -11,6 +11,16 @@ final class RootViewController: UIViewController {
     
     // MARK: - Properties
     
+    var viewModel: RootViewModel? {
+        didSet {
+            guard let viewModel = viewModel else {
+                return
+            }
+
+            setupViewModel(with: viewModel)
+        }
+    }
+    
     private let dayViewController: DayViewController = {
         guard let dayViewController = UIStoryboard.main.instantiateViewController(withIdentifier: DayViewController.storyboardIdentifier) as? DayViewController else {
             fatalError("Unable to Instantiate Day View Controller")
@@ -41,7 +51,6 @@ final class RootViewController: UIViewController {
         // Setup Child View Controllers
         setupChildViewControllers()
         
-        fetchWeatherData()
     }
     
     // MARK: - Helper Methods
@@ -73,29 +82,14 @@ final class RootViewController: UIViewController {
         ])
     }
     
-    private func fetchWeatherData() {
-        
-        let weatherRequest = WeatherRequest(location: Defaults.location)
-        
-        let request = NSMutableURLRequest(url: NSURL(string: weatherRequest.baseURLWithLocation)! as URL,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: Request.Timeout.interval)
-        
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = WeatherService.headers
-        
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest,
-                                        completionHandler: { (data, response, error) -> Void in
-                                            if let error = error {
-                                                print(error)
-                                            } else if let response = response {
-                                                print(response)
-                                            }
-                                        })
-        
-        dataTask.resume()
-        
+    private func setupViewModel(with viewModel: RootViewModel) {
+        viewModel.didFetchWeatherData = { (data, error) in
+            if let error = error {
+                print("Unable to fetch weather data (\(error))")
+            } else if let data = data {
+                print(data)
+            }
+        }
     }
 }
 
@@ -106,11 +100,4 @@ extension RootViewController {
             static let height: CGFloat = 200.0
         }
     }
-    
-    fileprivate enum Request {
-        enum Timeout {
-            static let interval: Double = 10.0
-        }
-    }
-    
 }

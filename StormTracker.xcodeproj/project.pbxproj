@@ -19,6 +19,7 @@
 		047617D8264192630030F231 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617D7264192630030F231 /* UIStoryboard.swift */; };
 		047617DB2641AAF30030F231 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617DA2641AAF30030F231 /* WeatherRequest.swift */; };
 		047617DE2641B1C50030F231 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617DD2641B1C50030F231 /* Configuration.swift */; };
+		047617E1264203B00030F231 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617E0264203B00030F231 /* RootViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		047617D7264192630030F231 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		047617DA2641AAF30030F231 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		047617DD2641B1C50030F231 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		047617E0264203B00030F231 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		047617C8264182500030F231 /* Root View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				047617DF2642039E0030F231 /* View Models */,
 				047617B6264181F30030F231 /* RootViewController.swift */,
 			);
 			path = "Root View Controller";
@@ -181,6 +184,14 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		047617DF2642039E0030F231 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				047617E0264203B00030F231 /* RootViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047617E1264203B00030F231 /* RootViewModel.swift in Sources */,
 				047617DB2641AAF30030F231 /* WeatherRequest.swift in Sources */,
 				047617D326418DCD0030F231 /* WeekViewController.swift in Sources */,
 				047617B7264181F30030F231 /* RootViewController.swift in Sources */,
