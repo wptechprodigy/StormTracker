@@ -20,6 +20,7 @@
 		047617DB2641AAF30030F231 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617DA2641AAF30030F231 /* WeatherRequest.swift */; };
 		047617DE2641B1C50030F231 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617DD2641B1C50030F231 /* Configuration.swift */; };
 		047617E1264203B00030F231 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617E0264203B00030F231 /* RootViewModel.swift */; };
+		047617E32643E7760030F231 /* DarkSkyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617E22643E7760030F231 /* DarkSkyResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		047617DA2641AAF30030F231 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		047617DD2641B1C50030F231 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		047617E0264203B00030F231 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		047617E22643E7760030F231 /* DarkSkyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				047617DA2641AAF30030F231 /* WeatherRequest.swift */,
+				047617E22643E7760030F231 /* DarkSkyResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				047617DB2641AAF30030F231 /* WeatherRequest.swift in Sources */,
 				047617D326418DCD0030F231 /* WeekViewController.swift in Sources */,
 				047617B7264181F30030F231 /* RootViewController.swift in Sources */,
+				047617E32643E7760030F231 /* DarkSkyResponse.swift in Sources */,
 				047617DE2641B1C50030F231 /* Configuration.swift in Sources */,
 				047617D6264191500030F231 /* UIViewController.swift in Sources */,
 				047617B3264181F30030F231 /* AppDelegate.swift in Sources */,
