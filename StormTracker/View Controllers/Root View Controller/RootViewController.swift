@@ -90,9 +90,9 @@ final class RootViewController: UIViewController {
         viewModel.didFetchWeatherData = { [weak self] (data, error) in
             if let _ = error {
                 self?.presentAlert(of: .noWeatherDataAvailable)
-            } else if let data = data {
+            } else if let data = data as? DarkSkyResponse {
                 DispatchQueue.main.async {
-                    print(data)
+                    print(data.daily)
                 }
             } else {
                 self?.presentAlert(of: .noWeatherDataAvailable)
