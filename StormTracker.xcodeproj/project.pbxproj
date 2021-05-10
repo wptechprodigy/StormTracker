@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0461166026493CDD0057620B /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461165F26493CDD0057620B /* WeatherData.swift */; };
 		046116642649D0B10057620B /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046116632649D0B10057620B /* DayViewModel.swift */; };
+		046116662649D7CA0057620B /* WeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046116652649D7CA0057620B /* WeekViewModel.swift */; };
 		047617B3264181F30030F231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B2264181F30030F231 /* AppDelegate.swift */; };
 		047617B5264181F30030F231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B4264181F30030F231 /* SceneDelegate.swift */; };
 		047617B7264181F30030F231 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B6264181F30030F231 /* RootViewController.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		0461165F26493CDD0057620B /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		046116632649D0B10057620B /* DayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
+		046116652649D7CA0057620B /* WeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModel.swift; sourceTree = "<group>"; };
 		047617AF264181F30030F231 /* StormTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047617B2264181F30030F231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047617B4264181F30030F231 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		046116612649D0900057620B /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				046116652649D7CA0057620B /* WeekViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				047617B5264181F30030F231 /* SceneDelegate.swift in Sources */,
 				047617D026418CFB0030F231 /* DayViewController.swift in Sources */,
 				0461166026493CDD0057620B /* WeatherData.swift in Sources */,
+				046116662649D7CA0057620B /* WeekViewModel.swift in Sources */,
 				047617D8264192630030F231 /* UIStoryboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

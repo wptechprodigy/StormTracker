@@ -9,6 +9,18 @@ import UIKit
 
 final class WeekViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    var viewModel: WeekViewModel? {
+        didSet {
+            guard let viewModel = viewModel else {
+                return
+            }
+            
+            setupViewModel(with: viewModel)
+        }
+    }
+    
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -22,6 +34,10 @@ final class WeekViewController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .systemBlue
+    }
+    
+    private func setupViewModel(with viewModel: WeekViewModel) {
+        print(viewModel)
     }
     
 }
