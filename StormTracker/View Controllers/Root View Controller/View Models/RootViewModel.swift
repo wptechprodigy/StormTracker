@@ -49,11 +49,13 @@ class RootViewModel {
                     }
                 } else if let data = data {
                     let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .secondsSince1970
                     
                     do {
                         let darkSkyResponse = try decoder.decode(DarkSkyResponse.self, from: data)
-                        
-                        self?.didFetchWeatherData?(darkSkyResponse, nil)
+                        DispatchQueue.main.async {
+                            self?.didFetchWeatherData?(darkSkyResponse, nil)
+                        }
                     } catch {
                         DispatchQueue.main.async {
                             print("Unable to Decode JSON reponse \(error)")
