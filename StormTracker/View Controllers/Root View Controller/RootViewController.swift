@@ -77,7 +77,6 @@ final class RootViewController: UIViewController {
             dayViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
             dayViewController.view.leftAnchor.constraint(equalTo: view.leftAnchor),
             dayViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor),
-            dayViewController.view.bottomAnchor.constraint(equalTo: view.topAnchor, constant: Layout.DayView.height),
             
             weekViewController.view.topAnchor.constraint(equalTo: dayViewController.view.bottomAnchor),
             weekViewController.view.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -121,14 +120,5 @@ final class RootViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
-    }
-}
-
-extension RootViewController {
-    
-    fileprivate enum Layout {
-        enum DayView {
-            static let height: CGFloat = 200.0
-        }
     }
 }

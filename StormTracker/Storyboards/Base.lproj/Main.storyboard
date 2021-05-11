@@ -30,9 +30,77 @@
                     <view key="view" contentMode="scaleToFill" id="ux2-cp-uga">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boz-Bj-FaV">
+                                <rect key="frame" x="186" y="52" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJj-VG-nuS">
+                                <rect key="frame" x="186" y="89" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dSL-uH-YG4">
+                                <rect key="frame" x="177" y="130" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="bpR-l0-OS8"/>
+                                    <constraint firstAttribute="height" constant="60" id="f3A-p9-dDc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nil-BQ-3Ij">
+                                <rect key="frame" x="16" y="149.5" width="41.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3M-kz-5vq">
+                                <rect key="frame" x="356.5" y="149.5" width="41.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxt-MG-neV">
+                                <rect key="frame" x="186" y="210" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yw3-be-LAs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uJj-VG-nuS" firstAttribute="centerX" secondItem="boz-Bj-FaV" secondAttribute="centerX" id="4l9-tj-ejX"/>
+                            <constraint firstItem="Nil-BQ-3Ij" firstAttribute="centerY" secondItem="dSL-uH-YG4" secondAttribute="centerY" id="7nP-DD-BDf"/>
+                            <constraint firstItem="z3M-kz-5vq" firstAttribute="leading" secondItem="dSL-uH-YG4" secondAttribute="trailing" priority="250" constant="8" id="7vI-jI-ayG"/>
+                            <constraint firstItem="dSL-uH-YG4" firstAttribute="leading" secondItem="Nil-BQ-3Ij" secondAttribute="trailing" priority="250" constant="8" id="CkE-iz-yGt"/>
+                            <constraint firstItem="uxt-MG-neV" firstAttribute="top" secondItem="dSL-uH-YG4" secondAttribute="bottom" constant="20" id="DpL-Ba-rcu"/>
+                            <constraint firstItem="z3M-kz-5vq" firstAttribute="centerY" secondItem="dSL-uH-YG4" secondAttribute="centerY" id="E1f-Fj-4rO"/>
+                            <constraint firstItem="boz-Bj-FaV" firstAttribute="centerX" secondItem="ux2-cp-uga" secondAttribute="centerX" id="F1p-Re-CFm"/>
+                            <constraint firstAttribute="bottom" secondItem="uxt-MG-neV" secondAttribute="bottom" priority="250" constant="20" id="KID-et-SgA"/>
+                            <constraint firstItem="Nil-BQ-3Ij" firstAttribute="leading" secondItem="ux2-cp-uga" secondAttribute="leading" constant="16" id="LJC-O4-VFj"/>
+                            <constraint firstItem="uJj-VG-nuS" firstAttribute="top" secondItem="boz-Bj-FaV" secondAttribute="bottom" constant="16" id="Nvs-SA-ggD"/>
+                            <constraint firstItem="dSL-uH-YG4" firstAttribute="top" secondItem="uJj-VG-nuS" secondAttribute="bottom" constant="20" id="XUo-ok-zxQ"/>
+                            <constraint firstItem="boz-Bj-FaV" firstAttribute="top" secondItem="yw3-be-LAs" secondAttribute="top" constant="8" id="kRC-i1-R6o"/>
+                            <constraint firstItem="uxt-MG-neV" firstAttribute="centerX" secondItem="ux2-cp-uga" secondAttribute="centerX" id="kUs-Pw-WxW"/>
+                            <constraint firstItem="dSL-uH-YG4" firstAttribute="centerX" secondItem="ux2-cp-uga" secondAttribute="centerX" id="nOj-gZ-mzt"/>
+                            <constraint firstAttribute="trailing" secondItem="z3M-kz-5vq" secondAttribute="trailing" constant="16" id="uIV-Hc-zX8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="boz-Bj-FaV" id="Er3-7U-HJi"/>
+                        <outlet property="descriptionLabel" destination="uxt-MG-neV" id="Mal-mr-Mit"/>
+                        <outlet property="iconImageView" destination="dSL-uH-YG4" id="p23-EM-HJX"/>
+                        <outlet property="temperatureLabel" destination="Nil-BQ-3Ij" id="o1f-3w-Ac2"/>
+                        <outlet property="timeLabel" destination="uJj-VG-nuS" id="Arq-t8-vy6"/>
+                        <outlet property="windSpeedLabel" destination="z3M-kz-5vq" id="mh3-kK-WnD"/>
+                        <outletCollection property="regularLabels" destination="Nil-BQ-3Ij" collectionClass="NSMutableArray" id="CXU-FS-P3m"/>
+                        <outletCollection property="regularLabels" destination="z3M-kz-5vq" collectionClass="NSMutableArray" id="cXb-4P-SEg"/>
+                        <outletCollection property="smallLabels" destination="uJj-VG-nuS" collectionClass="NSMutableArray" id="ag1-y2-vD5"/>
+                        <outletCollection property="smallLabels" destination="uxt-MG-neV" collectionClass="NSMutableArray" id="Ol9-IQ-E5q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npo-bl-bKc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
