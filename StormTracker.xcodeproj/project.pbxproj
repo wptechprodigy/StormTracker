@@ -12,6 +12,7 @@
 		046116662649D7CA0057620B /* WeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046116652649D7CA0057620B /* WeekViewModel.swift */; };
 		04611668264AB1760057620B /* Syles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611667264AB1760057620B /* Syles.swift */; };
 		0461166A264ADC710057620B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611669264ADC710057620B /* UIImage.swift */; };
+		04611672264BD4020057620B /* StormTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611671264BD4020057620B /* StormTrackerTests.swift */; };
 		047617B3264181F30030F231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B2264181F30030F231 /* AppDelegate.swift */; };
 		047617B5264181F30030F231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B4264181F30030F231 /* SceneDelegate.swift */; };
 		047617B7264181F30030F231 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B6264181F30030F231 /* RootViewController.swift */; };
@@ -28,12 +29,25 @@
 		047617E32643E7760030F231 /* DarkSkyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617E22643E7760030F231 /* DarkSkyResponse.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		04611674264BD4020057620B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 047617A7264181F30030F231 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 047617AE264181F30030F231;
+			remoteInfo = StormTracker;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0461165F26493CDD0057620B /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		046116632649D0B10057620B /* DayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
 		046116652649D7CA0057620B /* WeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModel.swift; sourceTree = "<group>"; };
 		04611667264AB1760057620B /* Syles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syles.swift; sourceTree = "<group>"; };
 		04611669264ADC710057620B /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		0461166F264BD4010057620B /* StormTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StormTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04611671264BD4020057620B /* StormTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormTrackerTests.swift; sourceTree = "<group>"; };
+		04611673264BD4020057620B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		047617AF264181F30030F231 /* StormTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047617B2264181F30030F231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047617B4264181F30030F231 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +67,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0461166C264BD4010057620B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		047617AC264181F30030F231 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,10 +108,20 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
+		04611670264BD4010057620B /* StormTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				04611671264BD4020057620B /* StormTrackerTests.swift */,
+				04611673264BD4020057620B /* Info.plist */,
+			);
+			path = StormTrackerTests;
+			sourceTree = "<group>";
+		};
 		047617A6264181F30030F231 = {
 			isa = PBXGroup;
 			children = (
 				047617B1264181F30030F231 /* StormTracker */,
+				04611670264BD4010057620B /* StormTrackerTests */,
 				047617B0264181F30030F231 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				047617AF264181F30030F231 /* StormTracker.app */,
+				0461166F264BD4010057620B /* StormTrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +269,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0461166E264BD4010057620B /* StormTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04611676264BD4020057620B /* Build configuration list for PBXNativeTarget "StormTrackerTests" */;
+			buildPhases = (
+				0461166B264BD4010057620B /* Sources */,
+				0461166C264BD4010057620B /* Frameworks */,
+				0461166D264BD4010057620B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04611675264BD4020057620B /* PBXTargetDependency */,
+			);
+			name = StormTrackerTests;
+			productName = StormTrackerTests;
+			productReference = 0461166F264BD4010057620B /* StormTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		047617AE264181F30030F231 /* StormTracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 047617C3264181F60030F231 /* Build configuration list for PBXNativeTarget "StormTracker" */;
@@ -263,6 +313,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					0461166E264BD4010057620B = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 047617AE264181F30030F231;
+					};
 					047617AE264181F30030F231 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -282,11 +336,19 @@
 			projectRoot = "";
 			targets = (
 				047617AE264181F30030F231 /* StormTracker */,
+				0461166E264BD4010057620B /* StormTrackerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0461166D264BD4010057620B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		047617AD264181F30030F231 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -300,6 +362,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0461166B264BD4010057620B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04611672264BD4020057620B /* StormTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		047617AB264181F30030F231 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,6 +395,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		04611675264BD4020057620B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 047617AE264181F30030F231 /* StormTracker */;
+			targetProxy = 04611674264BD4020057620B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		047617B8264181F30030F231 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -345,6 +423,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		04611677264BD4020057620B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6ZPB2R3KP8;
+				INFOPLIST_FILE = StormTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waheedcodes.StormTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StormTracker.app/StormTracker";
+			};
+			name = Debug;
+		};
+		04611678264BD4020057620B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6ZPB2R3KP8;
+				INFOPLIST_FILE = StormTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waheedcodes.StormTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StormTracker.app/StormTracker";
+			};
+			name = Release;
+		};
 		047617C1264181F60030F231 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -506,6 +624,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		04611676264BD4020057620B /* Build configuration list for PBXNativeTarget "StormTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04611677264BD4020057620B /* Debug */,
+				04611678264BD4020057620B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		047617AA264181F30030F231 /* Build configuration list for PBXProject "StormTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
