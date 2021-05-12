@@ -12,7 +12,9 @@
 		046116662649D7CA0057620B /* WeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046116652649D7CA0057620B /* WeekViewModel.swift */; };
 		04611668264AB1760057620B /* Syles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611667264AB1760057620B /* Syles.swift */; };
 		0461166A264ADC710057620B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611669264ADC710057620B /* UIImage.swift */; };
-		04611672264BD4020057620B /* StormTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611671264BD4020057620B /* StormTrackerTests.swift */; };
+		0461167C264BD9AD0057620B /* DayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461167B264BD9AD0057620B /* DayViewModelTests.swift */; };
+		0461167F264BDBA80057620B /* DarkSky.json in Resources */ = {isa = PBXBuildFile; fileRef = 0461167E264BDBA80057620B /* DarkSky.json */; };
+		04611682264BDBBF0057620B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611681264BDBBF0057620B /* File.swift */; };
 		047617B3264181F30030F231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B2264181F30030F231 /* AppDelegate.swift */; };
 		047617B5264181F30030F231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B4264181F30030F231 /* SceneDelegate.swift */; };
 		047617B7264181F30030F231 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B6264181F30030F231 /* RootViewController.swift */; };
@@ -46,8 +48,10 @@
 		04611667264AB1760057620B /* Syles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syles.swift; sourceTree = "<group>"; };
 		04611669264ADC710057620B /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		0461166F264BD4010057620B /* StormTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StormTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		04611671264BD4020057620B /* StormTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormTrackerTests.swift; sourceTree = "<group>"; };
 		04611673264BD4020057620B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0461167B264BD9AD0057620B /* DayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModelTests.swift; sourceTree = "<group>"; };
+		0461167E264BDBA80057620B /* DarkSky.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DarkSky.json; sourceTree = "<group>"; };
+		04611681264BDBBF0057620B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		047617AF264181F30030F231 /* StormTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047617B2264181F30030F231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047617B4264181F30030F231 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,10 +115,44 @@
 		04611670264BD4010057620B /* StormTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				04611671264BD4020057620B /* StormTrackerTests.swift */,
-				04611673264BD4020057620B /* Info.plist */,
+				04611680264BDBAE0057620B /* Extensions */,
+				0461167D264BDB6F0057620B /* Stubs */,
+				0461167A264BD53B0057620B /* Test Cases */,
+				04611679264BD4CB0057620B /* Supporting Files */,
 			);
 			path = StormTrackerTests;
+			sourceTree = "<group>";
+		};
+		04611679264BD4CB0057620B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				04611673264BD4020057620B /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0461167A264BD53B0057620B /* Test Cases */ = {
+			isa = PBXGroup;
+			children = (
+				0461167B264BD9AD0057620B /* DayViewModelTests.swift */,
+			);
+			path = "Test Cases";
+			sourceTree = "<group>";
+		};
+		0461167D264BDB6F0057620B /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				0461167E264BDBA80057620B /* DarkSky.json */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		04611680264BDBAE0057620B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04611681264BDBBF0057620B /* File.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		047617A6264181F30030F231 = {
@@ -315,6 +353,7 @@
 				TargetAttributes = {
 					0461166E264BD4010057620B = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 						TestTargetID = 047617AE264181F30030F231;
 					};
 					047617AE264181F30030F231 = {
@@ -346,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0461167F264BDBA80057620B /* DarkSky.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +406,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04611672264BD4020057620B /* StormTrackerTests.swift in Sources */,
+				0461167C264BD9AD0057620B /* DayViewModelTests.swift in Sources */,
+				04611682264BDBBF0057620B /* File.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,9 +468,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZPB2R3KP8;
-				INFOPLIST_FILE = StormTrackerTests/Info.plist;
+				INFOPLIST_FILE = "StormTrackerTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,6 +479,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.waheedcodes.StormTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StormTracker.app/StormTracker";
@@ -447,9 +490,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZPB2R3KP8;
-				INFOPLIST_FILE = StormTrackerTests/Info.plist;
+				INFOPLIST_FILE = "StormTrackerTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
