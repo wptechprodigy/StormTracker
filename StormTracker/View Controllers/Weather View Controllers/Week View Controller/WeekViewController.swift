@@ -27,7 +27,7 @@ final class WeekViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.isHidden = true
-            // tableView.dataSource = self
+            tableView.dataSource = self
             tableView.separatorInset = .zero
             tableView.estimatedRowHeight = 44.0
             tableView.rowHeight = UITableView.automaticDimension
@@ -54,11 +54,30 @@ final class WeekViewController: UIViewController {
     // MARK: - Helper Methods
     
     private func setupView() {
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .white
     }
     
     private func setupViewModel(with viewModel: WeekViewModel) {
-        print(viewModel)
+        activityIndicatorView.stopAnimating()
+        
+        tableView.reloadData()
+        tableView.isHidden = false
     }
     
+}
+
+extension WeekViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: WeekDayTableViewCell.reuseIdentifier,
+                for: indexPath) as? WeekDayTableViewCell else {
+            fatalError("Unable to deque week day table view cell")
+        }
+        
+        return cell
+    }
 }

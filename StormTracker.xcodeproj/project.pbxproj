@@ -14,7 +14,8 @@
 		0461166A264ADC710057620B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611669264ADC710057620B /* UIImage.swift */; };
 		0461167C264BD9AD0057620B /* DayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461167B264BD9AD0057620B /* DayViewModelTests.swift */; };
 		0461167F264BDBA80057620B /* DarkSky.json in Resources */ = {isa = PBXBuildFile; fileRef = 0461167E264BDBA80057620B /* DarkSky.json */; };
-		04611682264BDBBF0057620B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611681264BDBBF0057620B /* File.swift */; };
+		04611682264BDBBF0057620B /* XCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611681264BDBBF0057620B /* XCTests.swift */; };
+		04611687264DBEAC0057620B /* WeekDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611686264DBEAC0057620B /* WeekDayTableViewCell.swift */; };
 		047617B3264181F30030F231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B2264181F30030F231 /* AppDelegate.swift */; };
 		047617B5264181F30030F231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B4264181F30030F231 /* SceneDelegate.swift */; };
 		047617B7264181F30030F231 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B6264181F30030F231 /* RootViewController.swift */; };
@@ -51,7 +52,8 @@
 		04611673264BD4020057620B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0461167B264BD9AD0057620B /* DayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModelTests.swift; sourceTree = "<group>"; };
 		0461167E264BDBA80057620B /* DarkSky.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DarkSky.json; sourceTree = "<group>"; };
-		04611681264BDBBF0057620B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		04611681264BDBBF0057620B /* XCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTests.swift; sourceTree = "<group>"; };
+		04611686264DBEAC0057620B /* WeekDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayTableViewCell.swift; sourceTree = "<group>"; };
 		047617AF264181F30030F231 /* StormTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047617B2264181F30030F231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047617B4264181F30030F231 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,9 +152,17 @@
 		04611680264BDBAE0057620B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				04611681264BDBBF0057620B /* File.swift */,
+				04611681264BDBBF0057620B /* XCTests.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		04611683264DB78A0057620B /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				04611686264DBEAC0057620B /* WeekDayTableViewCell.swift */,
+			);
+			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
 		047617A6264181F30030F231 = {
@@ -262,6 +272,7 @@
 		047617D126418DBA0030F231 /* Week View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04611683264DB78A0057620B /* Table View Cells */,
 				046116612649D0900057620B /* View Models */,
 				047617D226418DCD0030F231 /* WeekViewController.swift */,
 			);
@@ -407,7 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0461167C264BD9AD0057620B /* DayViewModelTests.swift in Sources */,
-				04611682264BDBBF0057620B /* File.swift in Sources */,
+				04611682264BDBBF0057620B /* XCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +429,7 @@
 				047617E1264203B00030F231 /* RootViewModel.swift in Sources */,
 				04611668264AB1760057620B /* Syles.swift in Sources */,
 				047617DB2641AAF30030F231 /* WeatherRequest.swift in Sources */,
+				04611687264DBEAC0057620B /* WeekDayTableViewCell.swift in Sources */,
 				046116642649D0B10057620B /* DayViewModel.swift in Sources */,
 				047617D326418DCD0030F231 /* WeekViewController.swift in Sources */,
 				047617B7264181F30030F231 /* RootViewController.swift in Sources */,

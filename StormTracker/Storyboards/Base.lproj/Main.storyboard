@@ -125,13 +125,43 @@
                     <view key="view" contentMode="scaleToFill" id="mxH-iq-6C3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="hF8-AL-hKZ">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LzN-Zf-Kcc" customClass="WeekDayTable">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeekDayTableViewCell" id="1TX-u9-PlH" customClass="WeekDayTableViewCell" customModule="StormTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1TX-u9-PlH" id="sRb-S9-b2l">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="1f6-eB-xFE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LzN-Zf-Kcc" firstAttribute="top" secondItem="1f6-eB-xFE" secondAttribute="top" id="1zE-qs-riE"/>
+                            <constraint firstItem="LzN-Zf-Kcc" firstAttribute="bottom" secondItem="1f6-eB-xFE" secondAttribute="bottom" id="NeV-V1-5fu"/>
+                            <constraint firstItem="LzN-Zf-Kcc" firstAttribute="trailing" secondItem="1f6-eB-xFE" secondAttribute="trailing" id="XFO-Pp-7EC"/>
+                            <constraint firstItem="LzN-Zf-Kcc" firstAttribute="leading" secondItem="1f6-eB-xFE" secondAttribute="leading" id="uao-Vl-TBI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="hF8-AL-hKZ" id="qX7-m6-bvN"/>
+                        <outlet property="tableView" destination="LzN-Zf-Kcc" id="KRf-Wb-bxa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nv5-SE-bSZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="116"/>
+            <point key="canvasLocation" x="1515.9420289855075" y="115.84821428571428"/>
         </scene>
     </scenes>
     <resources>
