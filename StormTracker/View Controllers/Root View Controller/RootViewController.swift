@@ -91,7 +91,7 @@ final class RootViewController: UIViewController {
                 self?.presentAlert(of: .noWeatherDataAvailable)
             } else if let weatherData = weatherData as? DarkSkyResponse {
                 let dayViewModel = DayViewModel(weatherData: weatherData.current)
-                let weekViewModel = WeekViewModel(forecast: weatherData.forcast)
+                let weekViewModel = WeekViewModel(weatherData: weatherData.forcast)
                 
                 DispatchQueue.main.async {
                     self?.dayViewController.viewModel = dayViewModel

@@ -11,6 +11,12 @@ struct WeekViewModel {
     
     // MARK: - Properties
     
-    var forecast: [ForecastWeatherConditions]
+    var weatherData: [ForecastWeatherConditions]
+    
+    // MARK: -
+    
+    var numberOfDays: Int {
+        return weatherData.count
+    }
     
 }
