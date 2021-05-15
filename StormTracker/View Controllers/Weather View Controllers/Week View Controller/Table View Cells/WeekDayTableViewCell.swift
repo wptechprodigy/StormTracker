@@ -61,10 +61,12 @@ class WeekDayTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure(with viewModel: WeekDayViewModel) {
+        dayLabel.text = viewModel.day
+        dateLabel.text = viewModel.date
+        iconImageView.image = viewModel.image
+        windSpeedLabel.text = viewModel.windSpeed
+        temperatureLabel.text = viewModel.temperature
     }
 
 }

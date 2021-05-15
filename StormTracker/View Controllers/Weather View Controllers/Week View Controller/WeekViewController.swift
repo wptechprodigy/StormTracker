@@ -78,6 +78,13 @@ extension WeekViewController: UITableViewDataSource {
             fatalError("Unable to deque week day table view cell")
         }
         
+        guard let viewModel = viewModel else {
+            fatalError("No view model present")
+        }
+        
+        // Configure the cell
+        cell.configure(with: viewModel.viewModel(for: indexPath.row))
+        
         return cell
     }
 }

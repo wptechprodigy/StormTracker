@@ -19,4 +19,10 @@ struct WeekViewModel {
         return weatherData.count
     }
     
+    // MARK: - Helper Methods
+    
+    func viewModel(for index: Int) -> WeekDayViewModel {
+        return WeekDayViewModel(weatherData: weatherData[index])
+    }
+    
 }
