@@ -43,7 +43,7 @@ extension DarkSkyResponse: WeatherData {
         return currently
     }
     
-    var forcast: [ForecastWeatherConditions] {
+    var forecast: [ForecastWeatherConditions] {
         return daily.data
     }
     
