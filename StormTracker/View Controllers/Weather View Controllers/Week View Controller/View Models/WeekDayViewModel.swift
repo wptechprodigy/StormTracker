@@ -42,3 +42,7 @@ struct WeekDayViewModel {
         return UIImage.imageForIcon(with: weatherData.icon)
     }
 }
+
+extension WeekDayViewModel: WeekDayRepresentable {
+    
+}

@@ -61,12 +61,12 @@ class WeekDayTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
 
-    func configure(with viewModel: WeekDayViewModel) {
-        dayLabel.text = viewModel.day
-        dateLabel.text = viewModel.date
-        iconImageView.image = viewModel.image
-        windSpeedLabel.text = viewModel.windSpeed
-        temperatureLabel.text = viewModel.temperature
+    func configure(with representable: WeekDayRepresentable) {
+        dayLabel.text = representable.day
+        dateLabel.text = representable.date
+        iconImageView.image = representable.image
+        windSpeedLabel.text = representable.windSpeed
+        temperatureLabel.text = representable.temperature
     }
 
 }
