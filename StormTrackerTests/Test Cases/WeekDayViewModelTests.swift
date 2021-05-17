@@ -1,17 +1,21 @@
 //
-//  DayViewModelTests.swift
+//  WeekDayViewModelTests.swift
 //  StormTrackerTests
 //
-//  Created by waheedCodes on 12/05/2021.
+//  Created by waheedCodes on 17/05/2021.
 //
 
 import XCTest
 @testable import StormTracker
 
-class DayViewModelTests: XCTestCase {
+class WeekDayViewModelTests: XCTestCase {
     
-    var viewModel: DayViewModel!
-
+    // MARK: - Properties
+    
+    var viewModel: WeekDayViewModel!
+    
+    // MARK: - Set up and Tear down
+    
     override func setUp() {
         super.setUp()
         
@@ -19,32 +23,30 @@ class DayViewModelTests: XCTestCase {
         let decoder = JSONDecoder()
         
         decoder.dateDecodingStrategy = .secondsSince1970
-        let darkSKyResponse = try! decoder.decode(DarkSkyResponse.self, from: data)
-        viewModel = DayViewModel(weatherData: darkSKyResponse.current)
+        let darkSkyResponse = try! decoder.decode(DarkSkyResponse.self,
+                                                  from: data)
+        
+        viewModel = WeekDayViewModel(weatherData: darkSkyResponse.forecast[5])
     }
 
     override func tearDown() {
-        
+        super.tearDown()
+    }
+    
+    func testDay() {
+        XCTAssertEqual(viewModel.day, "Monday")
     }
     
     func testDate() {
-        XCTAssertEqual(viewModel.date, "Wed, May 5 2021")
-    }
-    
-    func testTime() {
-        XCTAssertEqual(viewModel.time, "04:50 PM")
+        XCTAssertEqual(viewModel.date, "May 10")
     }
     
     func testTemperature() {
-        XCTAssertEqual(viewModel.temperature, "30.6 ºF")
+        XCTAssertEqual(viewModel.temperature, "23.3 ºF - 31.6 ºF")
     }
     
     func testWinsSpeed() {
-        XCTAssertEqual(viewModel.windSpeed, "4 MPH")
-    }
-    
-    func testSummary() {
-        XCTAssertEqual(viewModel.summary, "Humid and Overcast")
+        XCTAssertEqual(viewModel.windSpeed, "2 MPH")
     }
     
     func testImage() {

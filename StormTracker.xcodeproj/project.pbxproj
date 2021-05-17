@@ -19,6 +19,7 @@
 		04611689264E804E0057620B /* WeekDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04611688264E804E0057620B /* WeekDayViewModel.swift */; };
 		0461168C26508DAA0057620B /* WeekDayRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461168B26508DAA0057620B /* WeekDayRepresentable.swift */; };
 		0461168E265158460057620B /* WeekViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461168D265158460057620B /* WeekViewModelTests.swift */; };
+		046116902652B0350057620B /* WeekDayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461168F2652B0350057620B /* WeekDayViewModelTests.swift */; };
 		047617B3264181F30030F231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B2264181F30030F231 /* AppDelegate.swift */; };
 		047617B5264181F30030F231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B4264181F30030F231 /* SceneDelegate.swift */; };
 		047617B7264181F30030F231 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B6264181F30030F231 /* RootViewController.swift */; };
@@ -60,6 +61,7 @@
 		04611688264E804E0057620B /* WeekDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayViewModel.swift; sourceTree = "<group>"; };
 		0461168B26508DAA0057620B /* WeekDayRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayRepresentable.swift; sourceTree = "<group>"; };
 		0461168D265158460057620B /* WeekViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModelTests.swift; sourceTree = "<group>"; };
+		0461168F2652B0350057620B /* WeekDayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayViewModelTests.swift; sourceTree = "<group>"; };
 		047617AF264181F30030F231 /* StormTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047617B2264181F30030F231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047617B4264181F30030F231 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				0461167B264BD9AD0057620B /* DayViewModelTests.swift */,
 				0461168D265158460057620B /* WeekViewModelTests.swift */,
+				0461168F2652B0350057620B /* WeekDayViewModelTests.swift */,
 			);
 			path = "Test Cases";
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				0461168E265158460057620B /* WeekViewModelTests.swift in Sources */,
 				0461167C264BD9AD0057620B /* DayViewModelTests.swift in Sources */,
 				04611682264BDBBF0057620B /* XCTests.swift in Sources */,
+				046116902652B0350057620B /* WeekDayViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
