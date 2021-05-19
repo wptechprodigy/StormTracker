@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import CoreLocation
 
-class RootViewModel {
+class RootViewModel: NSObject {
     
     enum WeatherDataError: Error {
         case noWeatherDataAvailable
@@ -19,8 +20,25 @@ class RootViewModel {
     
     var didFetchWeatherData: DidFetchWeatherDataCompletion?
     
-    init() {
+    private lazy var locationManager: CLLocationManager = {
+        
+        let locationManager = CLLocationManager()
+        
+        locationManager.delegate = self
+        
+        return locationManager
+    }()
+    
+    override init() {
+        super.init()
+        
         fetchWeatherData()
+        
+        fetchLocation()
+    }
+    
+    private func fetchLocation() {
+        locationManager.requestLocation()
     }
     
     private func fetchWeatherData() {
@@ -80,4 +98,10 @@ extension RootViewModel {
             static let interval: Double = 10.0
         }
     }
+}
+
+extension RootViewModel: CLLocationManagerDelegate {
+    
+    
+    
 }
