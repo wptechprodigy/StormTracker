@@ -102,6 +102,17 @@ extension RootViewModel {
 
 extension RootViewModel: CLLocationManagerDelegate {
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        // Hasn't been asked for permission yet
+        if status == .notDetermined {
+            // Request Authorization
+            locationManager.requestWhenInUseAuthorization()
+        } else if status == .authorizedWhenInUse {
+            fetchLocation()
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Unable to Fetch Location (\(error)")
     }
