@@ -102,6 +102,8 @@ extension RootViewModel {
 
 extension RootViewModel: CLLocationManagerDelegate {
     
-    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Unable to Fetch Location (\(error)")
+    }
     
 }
