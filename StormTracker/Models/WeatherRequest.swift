@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreLocation
 
 struct WeatherRequest {
     
@@ -14,14 +13,14 @@ struct WeatherRequest {
         return "https://dark-sky.p.rapidapi.com/"
     }
     
-    let location: CLLocation
+    let location: Location
     
     private var longitude: Double {
-        return location.coordinate.longitude
+        return location.longitude
     }
     
     private var latitude: Double {
-        return location.coordinate.latitude
+        return location.latitude
     }
     
     var baseURLWithLocation: String {

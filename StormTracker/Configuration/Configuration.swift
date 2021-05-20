@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import CoreLocation
 
 enum Defaults {
     
     // long: -74.0060 lat: 40.7128 (NY)
     // long: 3.75 lat: 6.5833 (NY)
-    static let location = CLLocation(latitude: 40.7128, longitude: -74.0060)
+    static let location = Location(latitude: 40.7128, longitude: -74.0060)
     
 }
 

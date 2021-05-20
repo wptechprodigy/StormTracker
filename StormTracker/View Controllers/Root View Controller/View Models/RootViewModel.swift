@@ -42,7 +42,7 @@ class RootViewModel: NSObject {
         locationManager.requestLocation()
     }
     
-    private func fetchWeatherData(for location: CLLocation) {
+    private func fetchWeatherData(for location: Location) {
         
         let weatherRequest = WeatherRequest(location: location)
         
@@ -124,7 +124,12 @@ extension RootViewModel: CLLocationManagerDelegate {
         }
         
         // Fetch weather data with the device location
-        fetchWeatherData(for: location)
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        let userLocation = Location(latitude: latitude, longitude: longitude)
+        
+        fetchWeatherData(for: userLocation)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
