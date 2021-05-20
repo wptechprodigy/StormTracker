@@ -11,6 +11,7 @@ final class RootViewController: UIViewController {
     
     private enum AlertType {
         case notAuthorizedToRequestLocation
+        case failedToRequestLocation
         case noWeatherDataAvailable
     }
     
@@ -94,6 +95,8 @@ final class RootViewController: UIViewController {
                 switch error {
                 case .notAuthorizedToRequestLocation:
                     alertType = .notAuthorizedToRequestLocation
+                case .failedToRequestLocation:
+                    alertType = .failedToRequestLocation
                 case .noWeatherDataAvailable:
                     alertType = .noWeatherDataAvailable
                 }
@@ -121,7 +124,10 @@ final class RootViewController: UIViewController {
         switch alertType {
         case .noWeatherDataAvailable:
             title = "Unable to Fetch Weather Data"
-            message = "The application is unable to fetch weather data. Please make sure your device is conected to the internet"
+            message = "The application is unable to fetch weather data. Please make sure your device is conected to the internet."
+        case .failedToRequestLocation:
+            title = "Unable to Fetch Weather Data for Your Location"
+            message = "StormTracker is not able to fetch your current location due to a technical issue."
         case .notAuthorizedToRequestLocation:
             title = "Unable to Fetch Weather Data for Your Location"
             message = "StormTracker is not authorized to access your current location. This means it's unable to show you the weather for your current location. You can grant StormTracker access to your current location in the application Settings."

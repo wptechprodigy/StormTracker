@@ -22,6 +22,7 @@
 		046116902652B0350057620B /* WeekDayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461168F2652B0350057620B /* WeekDayViewModelTests.swift */; };
 		046116C426567D870057620B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046116C326567D860057620B /* Location.swift */; };
 		046116C62656833E0057620B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046116C52656833E0057620B /* LocationService.swift */; };
+		046116C92656B1A20057620B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046116C82656B1A10057620B /* LocationManager.swift */; };
 		047617B3264181F30030F231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B2264181F30030F231 /* AppDelegate.swift */; };
 		047617B5264181F30030F231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B4264181F30030F231 /* SceneDelegate.swift */; };
 		047617B7264181F30030F231 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B6264181F30030F231 /* RootViewController.swift */; };
@@ -66,6 +67,7 @@
 		0461168F2652B0350057620B /* WeekDayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayViewModelTests.swift; sourceTree = "<group>"; };
 		046116C326567D860057620B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		046116C52656833E0057620B /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		046116C82656B1A10057620B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		047617AF264181F30030F231 /* StormTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047617B2264181F30030F231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047617B4264181F30030F231 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +191,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		046116C72656B1840057620B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				046116C82656B1A10057620B /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		047617A6264181F30030F231 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +220,7 @@
 		047617B1264181F30030F231 /* StormTracker */ = {
 			isa = PBXGroup;
 			children = (
+				046116C72656B1840057620B /* Managers */,
 				047617D92641AAD20030F231 /* Models */,
 				0461165E26493CC50057620B /* Protocols */,
 				047617C6264181FE0030F231 /* Application Delegate */,
@@ -468,6 +479,7 @@
 				047617D6264191500030F231 /* UIViewController.swift in Sources */,
 				0461166A264ADC710057620B /* UIImage.swift in Sources */,
 				047617B3264181F30030F231 /* AppDelegate.swift in Sources */,
+				046116C92656B1A20057620B /* LocationManager.swift in Sources */,
 				047617B5264181F30030F231 /* SceneDelegate.swift in Sources */,
 				0461168C26508DAA0057620B /* WeekDayRepresentable.swift in Sources */,
 				04611689264E804E0057620B /* WeekDayViewModel.swift in Sources */,

@@ -7,11 +7,15 @@
 
 import Foundation
 
+enum LocationServiceError: Error {
+    case notAuthorizedToRequestLocation
+}
+
 protocol LocationService {
     
     // MARK: - Type Alias
     
-    typealias FetchLocationCompletion = (Location?, Error?) -> Void
+    typealias FetchLocationCompletion = (Location?, LocationServiceError?) -> Void
     
     // MARK: - Helper Methods
     

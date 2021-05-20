@@ -12,6 +12,7 @@ class RootViewModel: NSObject {
     
     enum WeatherDataError: Error {
         case notAuthorizedToRequestLocation
+        case failedToRequestLocation
         case noWeatherDataAvailable
     }
     
@@ -21,16 +22,12 @@ class RootViewModel: NSObject {
     
     var didFetchWeatherData: DidFetchWeatherDataCompletion?
     
-    private lazy var locationManager: CLLocationManager = {
-        
-        let locationManager = CLLocationManager()
-        
-        locationManager.delegate = self
-        
-        return locationManager
-    }()
+    private let locationService: LocationService
     
-    override init() {
+    init(locationService: LocationService) {
+        
+        self.locationService = locationService
+        
         super.init()
         
         fetchWeatherData(for: Defaults.location)
@@ -39,7 +36,30 @@ class RootViewModel: NSObject {
     }
     
     private func fetchLocation() {
-        locationManager.requestLocation()
+        
+        locationService.fetchLocation { [weak self] (location, error) in
+            
+            if let error = error {
+                print("Unable to Fetch Location (\(error).")
+                
+                // Invoke completion handler
+                self?.didFetchWeatherData?(nil, .notAuthorizedToRequestLocation)
+                
+            } else if let location = location {
+                
+                // Invoke completion handler
+                self?.fetchWeatherData(for: location)
+                
+            } else {
+                
+                print("Unable to Fetch Location.")
+                
+                // Invoke completion handler
+                self?.didFetchWeatherData?(nil, .notAuthorizedToRequestLocation)
+                
+            }
+        }
+        
     }
     
     private func fetchWeatherData(for location: Location) {
@@ -99,41 +119,4 @@ extension RootViewModel {
             static let interval: Double = 10.0
         }
     }
-}
-
-extension RootViewModel: CLLocationManagerDelegate {
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        
-        // Checking location access...
-        switch manager.authorizationStatus {
-        case .notDetermined:
-            // Request Authorization
-            locationManager.requestWhenInUseAuthorization()
-        case .authorizedWhenInUse:
-            fetchLocation()
-        default:
-            didFetchWeatherData?(nil, .notAuthorizedToRequestLocation)
-        }
-    }
-    
-    // Locations updated?
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
-            return
-        }
-        
-        // Fetch weather data with the device location
-        let latitude = location.coordinate.latitude
-        let longitude = location.coordinate.longitude
-        
-        let userLocation = Location(latitude: latitude, longitude: longitude)
-        
-        fetchWeatherData(for: userLocation)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Unable to Fetch Location (\(error))")
-    }
-    
 }
