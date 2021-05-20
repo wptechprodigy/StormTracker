@@ -55,7 +55,7 @@ class RootViewModel: NSObject {
                 print("Unable to Fetch Location.")
                 
                 // Invoke completion handler
-                self?.didFetchWeatherData?(nil, .notAuthorizedToRequestLocation)
+                self?.didFetchWeatherData?(nil, .failedToRequestLocation)
                 
             }
         }
