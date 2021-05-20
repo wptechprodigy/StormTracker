@@ -20,6 +20,7 @@
 		0461168C26508DAA0057620B /* WeekDayRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461168B26508DAA0057620B /* WeekDayRepresentable.swift */; };
 		0461168E265158460057620B /* WeekViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461168D265158460057620B /* WeekViewModelTests.swift */; };
 		046116902652B0350057620B /* WeekDayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461168F2652B0350057620B /* WeekDayViewModelTests.swift */; };
+		046116C426567D870057620B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046116C326567D860057620B /* Location.swift */; };
 		047617B3264181F30030F231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B2264181F30030F231 /* AppDelegate.swift */; };
 		047617B5264181F30030F231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B4264181F30030F231 /* SceneDelegate.swift */; };
 		047617B7264181F30030F231 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617B6264181F30030F231 /* RootViewController.swift */; };
@@ -62,6 +63,7 @@
 		0461168B26508DAA0057620B /* WeekDayRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayRepresentable.swift; sourceTree = "<group>"; };
 		0461168D265158460057620B /* WeekViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModelTests.swift; sourceTree = "<group>"; };
 		0461168F2652B0350057620B /* WeekDayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayViewModelTests.swift; sourceTree = "<group>"; };
+		046116C326567D860057620B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		047617AF264181F30030F231 /* StormTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047617B2264181F30030F231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047617B4264181F30030F231 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			children = (
 				047617DA2641AAF30030F231 /* WeatherRequest.swift */,
 				047617E22643E7760030F231 /* DarkSkyResponse.swift */,
+				046116C326567D860057620B /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			files = (
 				047617E1264203B00030F231 /* RootViewModel.swift in Sources */,
 				04611668264AB1760057620B /* Syles.swift in Sources */,
+				046116C426567D870057620B /* Location.swift in Sources */,
 				047617DB2641AAF30030F231 /* WeatherRequest.swift in Sources */,
 				04611687264DBEAC0057620B /* WeekDayTableViewCell.swift in Sources */,
 				046116642649D0B10057620B /* DayViewModel.swift in Sources */,
