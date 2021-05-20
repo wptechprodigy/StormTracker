@@ -103,15 +103,16 @@ extension RootViewModel {
 
 extension RootViewModel: CLLocationManagerDelegate {
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
-        // Hasn't been asked for permission yet
-        if status == .notDetermined {
+        // Checking location access...
+        switch manager.authorizationStatus {
+        case .notDetermined:
             // Request Authorization
             locationManager.requestWhenInUseAuthorization()
-        } else if status == .authorizedWhenInUse {
+        case .authorizedWhenInUse:
             fetchLocation()
-        } else {
+        default:
             didFetchWeatherData?(nil, .notAuthorizedToRequestLocation)
         }
     }

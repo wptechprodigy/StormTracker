@@ -10,7 +10,9 @@ import CoreLocation
 
 enum Defaults {
     
-    static let location = CLLocation(latitude: 6.5833, longitude: 3.75)
+    // long: -74.0060 lat: 40.7128 (NY)
+    // long: 3.75 lat: 6.5833 (NY)
+    static let location = CLLocation(latitude: 40.7128, longitude: -74.0060)
     
 }
 

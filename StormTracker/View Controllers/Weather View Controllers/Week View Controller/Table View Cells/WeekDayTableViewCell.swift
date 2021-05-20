@@ -26,21 +26,21 @@ class WeekDayTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
-            dateLabel.textColor = .black
+            dateLabel.textColor = .label
             dateLabel.font = StormTracker.Fonts.lightRegular
         }
     }
     
     @IBOutlet weak var windSpeedLabel: UILabel! {
         didSet {
-            windSpeedLabel.textColor = .black
+            windSpeedLabel.textColor = .label
             windSpeedLabel.font = StormTracker.Fonts.lightSmall
         }
     }
     
     @IBOutlet weak var temperatureLabel: UILabel! {
         didSet {
-            temperatureLabel.textColor = .black
+            temperatureLabel.textColor = .label
             temperatureLabel.font = StormTracker.Fonts.lightSmall
         }
     }

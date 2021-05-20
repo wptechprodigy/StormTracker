@@ -10,6 +10,7 @@ import UIKit
 final class RootViewController: UIViewController {
     
     private enum AlertType {
+        case notAuthorizedToRequestLocation
         case noWeatherDataAvailable
     }
     
@@ -87,8 +88,18 @@ final class RootViewController: UIViewController {
     
     private func setupViewModel(with viewModel: RootViewModel) {
         viewModel.didFetchWeatherData = { [weak self] (weatherData, error) in
-            if let _ = error {
-                self?.presentAlert(of: .noWeatherDataAvailable)
+            if let error = error {
+                let alertType: AlertType
+                
+                switch error {
+                case .notAuthorizedToRequestLocation:
+                    alertType = .notAuthorizedToRequestLocation
+                case .noWeatherDataAvailable:
+                    alertType = .noWeatherDataAvailable
+                }
+                
+                // Notify user
+                self?.presentAlert(of: alertType)
             } else if let weatherData = weatherData as? DarkSkyResponse {
                 let dayViewModel = DayViewModel(weatherData: weatherData.current)
                 let weekViewModel = WeekViewModel(weatherData: weatherData.forecast)
@@ -111,6 +122,9 @@ final class RootViewController: UIViewController {
         case .noWeatherDataAvailable:
             title = "Unable to Fetch Weather Data"
             message = "The application is unable to fetch weather data. Please make sure your device is conected to the internet"
+        case .notAuthorizedToRequestLocation:
+            title = "Unable to Fetch Weather Data for Your Location"
+            message = "StormTracker is not authorized to access your current location. This means it's unable to show you the weather for your current location. You can grant StormTracker access to your current location in the application Settings."
         }
         
         let alertController = UIAlertController(title: title,

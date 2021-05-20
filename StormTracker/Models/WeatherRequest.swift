@@ -25,6 +25,6 @@ struct WeatherRequest {
     }
     
     var baseURLWithLocation: String {
-        return baseURL + "\(latitude),\(longitude)"
+        return baseURL + "\(latitude),\(longitude)?lang=en"
     }
 }
