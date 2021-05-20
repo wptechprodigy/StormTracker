@@ -11,6 +11,7 @@ import CoreLocation
 class RootViewModel: NSObject {
     
     enum WeatherDataError: Error {
+        case notAuthorizedToRequestLocation
         case noWeatherDataAvailable
     }
     
@@ -32,7 +33,7 @@ class RootViewModel: NSObject {
     override init() {
         super.init()
         
-        fetchWeatherData()
+        fetchWeatherData(for: Defaults.location)
         
         fetchLocation()
     }
@@ -41,9 +42,9 @@ class RootViewModel: NSObject {
         locationManager.requestLocation()
     }
     
-    private func fetchWeatherData() {
+    private func fetchWeatherData(for location: CLLocation) {
         
-        let weatherRequest = WeatherRequest(location: Defaults.location)
+        let weatherRequest = WeatherRequest(location: location)
         
         let request = NSMutableURLRequest(url: NSURL(string: weatherRequest.baseURLWithLocation)! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
@@ -110,11 +111,23 @@ extension RootViewModel: CLLocationManagerDelegate {
             locationManager.requestWhenInUseAuthorization()
         } else if status == .authorizedWhenInUse {
             fetchLocation()
+        } else {
+            didFetchWeatherData?(nil, .notAuthorizedToRequestLocation)
         }
     }
     
+    // Locations updated?
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else {
+            return
+        }
+        
+        // Fetch weather data with the device location
+        fetchWeatherData(for: location)
+    }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Unable to Fetch Location (\(error)")
+        print("Unable to Fetch Location (\(error))")
     }
     
 }
