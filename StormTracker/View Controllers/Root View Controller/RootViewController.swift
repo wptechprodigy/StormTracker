@@ -38,12 +38,13 @@ final class RootViewController: UIViewController {
         return dayViewController
     }()
     
-    private let weekViewController: WeekViewController = {
+    private lazy var weekViewController: WeekViewController = {
         guard let weekViewController = UIStoryboard.main.instantiateViewController(withIdentifier: WeekViewController.storyboardIdentifier) as? WeekViewController else {
             fatalError("Unable to Instantiate Day View Controller")
         }
         
         // Configure day view controller
+        weekViewController.delegate = self
         weekViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
         return weekViewController
@@ -113,6 +114,10 @@ final class RootViewController: UIViewController {
                 
                 // Notify user
                 self?.presentAlert(of: alertType)
+                
+                // Incase the data cannot be fetched...ensure the refreshControl is stopped
+                self?.dayViewController.viewModel = nil
+                self?.weekViewController.viewModel = nil
             }
             
         }
@@ -142,4 +147,12 @@ final class RootViewController: UIViewController {
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
     }
+}
+
+extension RootViewController: WeekViewControllerDelegate {
+    
+    func controllerDidRefresh(_ controller: WeekViewController) {
+        viewModel?.refresh()
+    }
+    
 }

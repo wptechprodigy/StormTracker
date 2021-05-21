@@ -7,18 +7,24 @@
 
 import UIKit
 
+protocol WeekViewControllerDelegate: AnyObject {
+    func controllerDidRefresh(_ controller: WeekViewController)
+}
+
 final class WeekViewController: UIViewController {
     
     // MARK: - Properties
     
+    weak var delegate: WeekViewControllerDelegate?
+    
     var viewModel: WeekViewModel? {
         didSet {
-            guard let viewModel = viewModel else {
-                return
-            }
+            refreshControl.endRefreshing()
             
-            // Setup view model
-            setupViewModel(with: viewModel)
+            if let viewModel = viewModel {
+                // Setup view model
+                setupViewModel(with: viewModel)
+            }
         }
     }
     
@@ -32,6 +38,8 @@ final class WeekViewController: UIViewController {
             tableView.estimatedRowHeight = 44.0
             tableView.rowHeight = UITableView.automaticDimension
             tableView.showsVerticalScrollIndicator = false
+            
+            tableView.refreshControl = refreshControl
         }
     }
     
@@ -41,6 +49,15 @@ final class WeekViewController: UIViewController {
             activityIndicatorView.hidesWhenStopped = true
         }
     }
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        
+        refreshControl.tintColor = StormTracker.Color.baseTintColor
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        
+        return refreshControl
+    }()
     
     // MARK: - View Life Cycle
 
@@ -62,6 +79,10 @@ final class WeekViewController: UIViewController {
         
         tableView.reloadData()
         tableView.isHidden = false
+    }
+    
+    @objc private func refresh(_ sender: UIRefreshControl) {
+        delegate?.controllerDidRefresh(self)
     }
     
 }
