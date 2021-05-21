@@ -26,3 +26,14 @@ enum WeatherService {
     ]
     
 }
+
+enum Configuration {
+    
+    static var refreshThreshold: TimeInterval {
+        #if DEBUG
+        return 15.0
+        #else
+        return 10.0 * 60.0
+        #endif
+    }
+}
