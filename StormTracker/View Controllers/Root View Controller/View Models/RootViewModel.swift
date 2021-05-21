@@ -70,7 +70,7 @@ class RootViewModel: NSObject {
                 return
             }
             
-            if Date().timeIntervalSince(didFetchWeatherData) > (10.0 * 60.0) {
+            if Date().timeIntervalSince(didFetchWeatherData) > Configuration.refreshThreshold {
                 self?.refresh()
             }
             
