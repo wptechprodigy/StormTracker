@@ -45,7 +45,7 @@ extension LocationManager: CLLocationManagerDelegate {
             locationManager.requestLocation()
         default:
             // Invoke the completion handler
-            didFetchLocation?(nil, .notAuthorizedToRequestLocation)
+            didFetchLocation?(.failure(.notAuthorizedToRequestLocation))
             
             // Reset the completion handler
             didFetchLocation = nil
@@ -59,7 +59,7 @@ extension LocationManager: CLLocationManagerDelegate {
         }
         
         // Invoke the completion handler
-        didFetchLocation?(Location(location: location), nil)
+        didFetchLocation?(.success(Location(location: location)))
         
         // Reset Completion Handler
         didFetchLocation = nil

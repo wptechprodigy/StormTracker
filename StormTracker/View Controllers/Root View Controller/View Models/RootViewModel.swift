@@ -16,11 +16,16 @@ class RootViewModel: NSObject {
         case noWeatherDataAvailable
     }
     
+    enum WeatherDataResult {
+        case success(WeatherData)
+        case failure(WeatherDataError)
+    }
+    
     // MARK: - Properties
     
-    typealias DidFetchWeatherDataCompletion = (WeatherData?, WeatherDataError?) -> Void
+    typealias FetchWeatherDataCompletion = (WeatherDataResult) -> Void
     
-    var didFetchWeatherData: DidFetchWeatherDataCompletion?
+    var didFetchWeatherData: FetchWeatherDataCompletion?
     
     private let locationService: LocationService
     
@@ -37,27 +42,19 @@ class RootViewModel: NSObject {
     
     private func fetchLocation() {
         
-        locationService.fetchLocation { [weak self] (location, error) in
+        locationService.fetchLocation { [weak self] result in
             
-            if let error = error {
-                print("Unable to Fetch Location (\(error).")
-                
-                // Invoke completion handler
-                self?.didFetchWeatherData?(nil, .notAuthorizedToRequestLocation)
-                
-            } else if let location = location {
-                
+            switch result {
+            case .success(let location):
                 // Invoke completion handler
                 self?.fetchWeatherData(for: location)
-                
-            } else {
-                
-                print("Unable to Fetch Location.")
+            case .failure(let locationServiceError):
+                print("Unable to Fetch Location (\(locationServiceError).")
                 
                 // Invoke completion handler
-                self?.didFetchWeatherData?(nil, .failedToRequestLocation)
-                
+                self?.didFetchWeatherData?(.failure(.noWeatherDataAvailable))
             }
+
         }
         
     }
@@ -81,29 +78,40 @@ class RootViewModel: NSObject {
                     print("Status code: \(response.statusCode)")
                 }
                 
-                if let error = error {
-                    DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    if let error = error {
                         print("Unable to Fetch Weather Data \(error)")
-                        self?.didFetchWeatherData?(nil, .noWeatherDataAvailable)
-                    }
-                } else if let data = data {
-                    let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .secondsSince1970
-                    
-                    do {
-                        let darkSkyResponse = try decoder.decode(DarkSkyResponse.self, from: data)
-                        DispatchQueue.main.async {
-                            self?.didFetchWeatherData?(darkSkyResponse, nil)
-                        }
-                    } catch {
-                        DispatchQueue.main.async {
+                        
+                        let result: WeatherDataResult = .failure(.noWeatherDataAvailable)
+                        
+                        self?.didFetchWeatherData?(result)
+                        
+                    } else if let data = data {
+                        let decoder = JSONDecoder()
+                        decoder.dateDecodingStrategy = .secondsSince1970
+                        
+                        do {
+                            let darkSkyResponse = try decoder.decode(DarkSkyResponse.self, from: data)
+                            
+                            let result: WeatherDataResult = .success(darkSkyResponse)
+                            
+                            self?.didFetchWeatherData?(result)
+                            
+                        } catch {
+                            
                             print("Unable to Decode JSON reponse \(error)")
-                            self?.didFetchWeatherData?(nil, .noWeatherDataAvailable)
+                            
+                            let result: WeatherDataResult = .failure(.noWeatherDataAvailable)
+                            
+                            self?.didFetchWeatherData?(result)
+                            
                         }
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self?.didFetchWeatherData?(nil, .noWeatherDataAvailable)
+                    } else {
+                        
+                        let result: WeatherDataResult = .failure(.noWeatherDataAvailable)
+                        
+                        self?.didFetchWeatherData?(result)
+                        
                     }
                 }
             })

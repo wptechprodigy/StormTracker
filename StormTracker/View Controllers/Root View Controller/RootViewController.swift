@@ -88,11 +88,21 @@ final class RootViewController: UIViewController {
     }
     
     private func setupViewModel(with viewModel: RootViewModel) {
-        viewModel.didFetchWeatherData = { [weak self] (weatherData, error) in
-            if let error = error {
+        viewModel.didFetchWeatherData = { [weak self] result in
+            
+            switch result {
+            case .success(let weatherData):
+                let dayViewModel = DayViewModel(weatherData: weatherData.current)
+                let weekViewModel = WeekViewModel(weatherData: weatherData.forecast)
+                
+                DispatchQueue.main.async {
+                    self?.dayViewController.viewModel = dayViewModel
+                    self?.weekViewController.viewModel = weekViewModel
+                }
+            case .failure(let weatherDataError):
                 let alertType: AlertType
                 
-                switch error {
+                switch weatherDataError {
                 case .notAuthorizedToRequestLocation:
                     alertType = .notAuthorizedToRequestLocation
                 case .failedToRequestLocation:
@@ -103,17 +113,8 @@ final class RootViewController: UIViewController {
                 
                 // Notify user
                 self?.presentAlert(of: alertType)
-            } else if let weatherData = weatherData as? DarkSkyResponse {
-                let dayViewModel = DayViewModel(weatherData: weatherData.current)
-                let weekViewModel = WeekViewModel(weatherData: weatherData.forecast)
-                
-                DispatchQueue.main.async {
-                    self?.dayViewController.viewModel = dayViewModel
-                    self?.weekViewController.viewModel = weekViewModel
-                }
-            } else {
-                self?.presentAlert(of: .noWeatherDataAvailable)
             }
+            
         }
     }
     

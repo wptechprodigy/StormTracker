@@ -11,11 +11,16 @@ enum LocationServiceError: Error {
     case notAuthorizedToRequestLocation
 }
 
+enum LocationServiceResult {
+    case success(Location)
+    case failure(LocationServiceError)
+}
+
 protocol LocationService {
     
     // MARK: - Type Alias
     
-    typealias FetchLocationCompletion = (Location?, LocationServiceError?) -> Void
+    typealias FetchLocationCompletion = (LocationServiceResult) -> Void
     
     // MARK: - Helper Methods
     
