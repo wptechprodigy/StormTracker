@@ -65,7 +65,15 @@ class RootViewModel: NSObject {
         NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
                                                object: nil,
                                                queue: OperationQueue.main) { [weak self] (_) in
-            self?.refresh()
+            guard let didFetchWeatherData = UserDefaults.didFetchWeatherData else {
+                self?.refresh()
+                return
+            }
+            
+            if Date().timeIntervalSince(didFetchWeatherData) > (10.0 * 60.0) {
+                self?.refresh()
+            }
+            
         }
     }
     
@@ -141,4 +149,26 @@ extension RootViewModel {
             static let interval: Double = 10.0
         }
     }
+}
+
+extension UserDefaults {
+    
+    // MARK: - Types
+    
+    private enum Keys {
+        static let didFetchWeatherData = "didFetchWeatherData"
+    }
+    
+    // MARK: - Class computed properties
+    
+    fileprivate class var didFetchWeatherData: Date? {
+        get {
+            return UserDefaults.standard.object(forKey: Keys.didFetchWeatherData) as? Date
+        }
+        
+        set(newValue) {
+            UserDefaults.standard.set(newValue, forKey: Keys.didFetchWeatherData)
+        }
+    }
+    
 }
