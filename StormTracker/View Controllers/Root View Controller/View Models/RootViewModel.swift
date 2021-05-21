@@ -117,6 +117,9 @@ class RootViewModel: NSObject {
                             
                             let result: WeatherDataResult = .success(darkSkyResponse)
                             
+                            // Update the userdefault with the time the data was fetched
+                            UserDefaults.didFetchWeatherData = Date()
+                            
                             self?.didFetchWeatherData?(result)
                             
                         } catch {
