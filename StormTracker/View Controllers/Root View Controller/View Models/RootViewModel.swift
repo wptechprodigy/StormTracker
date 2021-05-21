@@ -5,7 +5,7 @@
 //  Created by waheedCodes on 04/05/2021.
 //
 
-import Foundation
+import UIKit
 import CoreLocation
 
 class RootViewModel: NSObject {
@@ -35,6 +35,8 @@ class RootViewModel: NSObject {
         
         super.init()
         
+        setupNotificationHandling()
+        
         fetchWeatherData(for: Defaults.location)
         
         fetchLocation()
@@ -42,7 +44,7 @@ class RootViewModel: NSObject {
     
     private func fetchLocation() {
         
-        locationService.fetchLocation { [weak self] result in
+        locationService.fetchLocation { [weak self] (result) in
             
             switch result {
             case .success(let location):
@@ -57,6 +59,18 @@ class RootViewModel: NSObject {
 
         }
         
+    }
+    
+    private func setupNotificationHandling() {
+        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
+                                               object: nil,
+                                               queue: OperationQueue.main) { [weak self] (_) in
+            self?.refresh()
+        }
+    }
+    
+    private func refresh() {
+        fetchLocation()
     }
     
     private func fetchWeatherData(for location: Location) {
