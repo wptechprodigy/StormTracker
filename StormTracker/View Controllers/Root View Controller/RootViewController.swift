@@ -58,6 +58,9 @@ final class RootViewController: UIViewController {
         // Setup Child View Controllers
         setupChildViewControllers()
         
+        // Fetch location from here with the VM
+        viewModel?.refresh()
+        
     }
     
     // MARK: - Helper Methods

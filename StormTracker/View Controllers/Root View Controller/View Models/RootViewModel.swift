@@ -29,6 +29,8 @@ class RootViewModel: NSObject {
     
     private let locationService: LocationService
     
+    // MARK: - Initialization
+    
     init(locationService: LocationService) {
         
         self.locationService = locationService
@@ -36,11 +38,10 @@ class RootViewModel: NSObject {
         super.init()
         
         setupNotificationHandling()
-        
-        fetchWeatherData(for: Defaults.location)
-        
-        fetchLocation()
+
     }
+    
+    // MARK: - Helper Methods
     
     private func fetchLocation() {
         
@@ -53,8 +54,11 @@ class RootViewModel: NSObject {
             case .failure(let locationServiceError):
                 print("Unable to Fetch Location (\(locationServiceError).")
                 
+                // Weather data result
+                let result: WeatherDataResult = .failure(.noWeatherDataAvailable)
+                
                 // Invoke completion handler
-                self?.didFetchWeatherData?(.failure(.noWeatherDataAvailable))
+                self?.didFetchWeatherData?(result)
             }
 
         }
