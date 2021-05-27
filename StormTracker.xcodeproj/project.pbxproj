@@ -37,6 +37,8 @@
 		047617DE2641B1C50030F231 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617DD2641B1C50030F231 /* Configuration.swift */; };
 		047617E1264203B00030F231 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617E0264203B00030F231 /* RootViewModel.swift */; };
 		047617E32643E7760030F231 /* DarkSkyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617E22643E7760030F231 /* DarkSkyResponse.swift */; };
+		04A4502B2660012B005D41ED /* RootViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4502A2660012B005D41ED /* RootViewModelTests.swift */; };
+		04A4502E266002AC005D41ED /* MockLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4502D266002AC005D41ED /* MockLocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		047617DD2641B1C50030F231 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		047617E0264203B00030F231 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		047617E22643E7760030F231 /* DarkSkyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyResponse.swift; sourceTree = "<group>"; };
+		04A4502A2660012B005D41ED /* RootViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModelTests.swift; sourceTree = "<group>"; };
+		04A4502D266002AC005D41ED /* MockLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 		04611670264BD4010057620B /* StormTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
+				04A4502C26600298005D41ED /* Mocks */,
 				04611680264BDBAE0057620B /* Extensions */,
 				0461167D264BDB6F0057620B /* Stubs */,
 				0461167A264BD53B0057620B /* Test Cases */,
@@ -155,6 +160,7 @@
 				0461167B264BD9AD0057620B /* DayViewModelTests.swift */,
 				0461168D265158460057620B /* WeekViewModelTests.swift */,
 				0461168F2652B0350057620B /* WeekDayViewModelTests.swift */,
+				04A4502A2660012B005D41ED /* RootViewModelTests.swift */,
 			);
 			path = "Test Cases";
 			sourceTree = "<group>";
@@ -352,6 +358,14 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
+		04A4502C26600298005D41ED /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				04A4502D266002AC005D41ED /* MockLocationService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -454,6 +468,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A4502E266002AC005D41ED /* MockLocationService.swift in Sources */,
+				04A4502B2660012B005D41ED /* RootViewModelTests.swift in Sources */,
 				0461168E265158460057620B /* WeekViewModelTests.swift in Sources */,
 				0461167C264BD9AD0057620B /* DayViewModelTests.swift in Sources */,
 				04611682264BDBBF0057620B /* XCTests.swift in Sources */,
