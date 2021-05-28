@@ -25,7 +25,28 @@ class RootViewModelTests: XCTestCase {
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
+    func testRefresh() {
+        // Define Expectation
+        let expectation = XCTestExpectation(description: "Fetch Weather Data")
+        
+        // Install Handler
+        viewModel.didFetchWeatherData = { (result) in
+            if case .success(let weatherData) = result {
+                print(weatherData)
+                
+                // Fulfill Expectation
+                expectation.fulfill()
+            }
+        }
+        
+        // Invoke method under test
+        viewModel.refresh()
+        
+        //Wait for expectation to be fulfilled
+        wait(for: [expectation], timeout: 2.0)
     }
 
 }
