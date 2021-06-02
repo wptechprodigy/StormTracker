@@ -13,6 +13,7 @@ class RootViewModelTests: XCTestCase {
     // MARK: - Properties
     
     var viewModel: RootViewModel!
+    var networkService: MockNetworkService!
     var locationService: MockLocationService!
     
     // MARK: - Setup and Tear down
@@ -22,7 +23,7 @@ class RootViewModelTests: XCTestCase {
         super.setUp()
         
         // Initialize Mock Network Service
-        let networkService = MockNetworkService()
+        networkService = MockNetworkService()
         
         // Initialize Mock Location Service
         locationService = MockLocationService()
@@ -46,8 +47,8 @@ class RootViewModelTests: XCTestCase {
         viewModel.didFetchWeatherData = { (result) in
             if case .success(let weatherData) = result {
                 
-//                XCTAssertEqual(weatherData.latitude, 6.5833)
-//                XCTAssertEqual(weatherData.longitude, 3.75)
+                XCTAssertEqual(weatherData.latitude, 6.5833)
+                XCTAssertEqual(weatherData.longitude, 3.75)
                 
                 // Fulfill Expectation
                 expectation.fulfill()
@@ -66,12 +67,37 @@ class RootViewModelTests: XCTestCase {
         locationService.location = nil
         
         // Define Expectation
-        let expectation = XCTestExpectation(description: "Fetch Weather Data")
+        let expectation = XCTestExpectation(description: "Fetch Location")
         
         // Install Handler
         viewModel.didFetchWeatherData = { (result) in
             if case .failure(let error) = result {
                 XCTAssertEqual(error, RootViewModel.WeatherDataError.notAuthorizedToRequestLocation)
+                
+                // Fulfill Expectation
+                expectation.fulfill()
+            }
+        }
+        
+        // Invoke method under test
+        viewModel.refresh()
+        
+        //Wait for expectation to be fulfilled
+        wait(for: [expectation], timeout: 2.0)
+    }
+    
+    func testRefresh_FailedToFetchWeatherData_RequestFailed() {
+        // Simulate failed Weather Data
+        networkService.error = NSError(domain: "com.waheedcodes.network.service", code: 1, userInfo: nil)
+        
+        // Define Expectation
+        let expectation = XCTestExpectation(description: "Request Weather Data Failed")
+        
+        // Install Handler
+        viewModel.didFetchWeatherData = { (result) in
+            if case .failure(let error) = result {
+                
+                XCTAssertEqual(error, RootViewModel.WeatherDataError.noWeatherDataAvailable)
                 
                 // Fulfill Expectation
                 expectation.fulfill()
