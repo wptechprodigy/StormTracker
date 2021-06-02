@@ -110,5 +110,30 @@ class RootViewModelTests: XCTestCase {
         //Wait for expectation to be fulfilled
         wait(for: [expectation], timeout: 2.0)
     }
+    
+    func testRefresh_FailedToFetchWeatherData_InvalidResponse() {
+        // Simulate invalid Weather Data response
+        networkService.data = "data".data(using: .utf8)
+        
+        // Define Expectation
+        let expectation = XCTestExpectation(description: "Invalid Weather Data Response")
+        
+        // Install Handler
+        viewModel.didFetchWeatherData = { (result) in
+            if case .failure(let error) = result {
+                
+                XCTAssertEqual(error, RootViewModel.WeatherDataError.noWeatherDataAvailable)
+                
+                // Fulfill Expectation
+                expectation.fulfill()
+            }
+        }
+        
+        // Invoke method under test
+        viewModel.refresh()
+        
+        //Wait for expectation to be fulfilled
+        wait(for: [expectation], timeout: 2.0)
+    }
 
 }
