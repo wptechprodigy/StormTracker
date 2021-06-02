@@ -9,7 +9,7 @@ import Foundation
 
 struct WeatherRequest {
     
-    var baseURL: String {
+    private var baseURL: String {
         return "https://dark-sky.p.rapidapi.com/"
     }
     

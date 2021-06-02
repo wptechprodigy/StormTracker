@@ -39,6 +39,9 @@
 		047617E32643E7760030F231 /* DarkSkyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047617E22643E7760030F231 /* DarkSkyResponse.swift */; };
 		04A4502B2660012B005D41ED /* RootViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4502A2660012B005D41ED /* RootViewModelTests.swift */; };
 		04A4502E266002AC005D41ED /* MockLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4502D266002AC005D41ED /* MockLocationService.swift */; };
+		04A450302660E1BB005D41ED /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4502F2660E1BB005D41ED /* NetworkService.swift */; };
+		04A450322660E40F005D41ED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A450312660E40F005D41ED /* NetworkManager.swift */; };
+		04A450342660EA37005D41ED /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A450332660EA37005D41ED /* MockNetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		047617E22643E7760030F231 /* DarkSkyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyResponse.swift; sourceTree = "<group>"; };
 		04A4502A2660012B005D41ED /* RootViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModelTests.swift; sourceTree = "<group>"; };
 		04A4502D266002AC005D41ED /* MockLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationService.swift; sourceTree = "<group>"; };
+		04A4502F2660E1BB005D41ED /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		04A450312660E40F005D41ED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		04A450332660EA37005D41ED /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,7 @@
 			children = (
 				0461165F26493CDD0057620B /* WeatherData.swift */,
 				046116C52656833E0057620B /* LocationService.swift */,
+				04A4502F2660E1BB005D41ED /* NetworkService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -201,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				046116C82656B1A10057620B /* LocationManager.swift */,
+				04A450312660E40F005D41ED /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -362,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				04A4502D266002AC005D41ED /* MockLocationService.swift */,
+				04A450332660EA37005D41ED /* MockNetworkService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -469,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A4502E266002AC005D41ED /* MockLocationService.swift in Sources */,
+				04A450342660EA37005D41ED /* MockNetworkService.swift in Sources */,
 				04A4502B2660012B005D41ED /* RootViewModelTests.swift in Sources */,
 				0461168E265158460057620B /* WeekViewModelTests.swift in Sources */,
 				0461167C264BD9AD0057620B /* DayViewModelTests.swift in Sources */,
@@ -483,6 +493,7 @@
 			files = (
 				047617E1264203B00030F231 /* RootViewModel.swift in Sources */,
 				04611668264AB1760057620B /* Syles.swift in Sources */,
+				04A450302660E1BB005D41ED /* NetworkService.swift in Sources */,
 				046116C426567D870057620B /* Location.swift in Sources */,
 				047617DB2641AAF30030F231 /* WeatherRequest.swift in Sources */,
 				04611687264DBEAC0057620B /* WeekDayTableViewCell.swift in Sources */,
@@ -492,6 +503,7 @@
 				047617B7264181F30030F231 /* RootViewController.swift in Sources */,
 				047617E32643E7760030F231 /* DarkSkyResponse.swift in Sources */,
 				047617DE2641B1C50030F231 /* Configuration.swift in Sources */,
+				04A450322660E40F005D41ED /* NetworkManager.swift in Sources */,
 				047617D6264191500030F231 /* UIViewController.swift in Sources */,
 				0461166A264ADC710057620B /* UIImage.swift in Sources */,
 				047617B3264181F30030F231 /* AppDelegate.swift in Sources */,

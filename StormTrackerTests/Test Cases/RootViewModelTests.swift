@@ -13,6 +13,7 @@ class RootViewModelTests: XCTestCase {
     // MARK: - Properties
     
     var viewModel: RootViewModel!
+    var locationService: MockLocationService!
     
     // MARK: - Setup and Tear down
 
@@ -20,8 +21,17 @@ class RootViewModelTests: XCTestCase {
         
         super.setUp()
         
+        // Initialize Mock Network Service
+        let networkService = MockNetworkService()
         
-        viewModel = RootViewModel(locationService: MockLocationService())
+        // Initialize Mock Location Service
+        locationService = MockLocationService()
+        
+        // Configure Mock Network Service\
+        networkService.data = loadStub(name: "DarkSky", extension: "json")
+        
+        // Initialize Root View Model
+        viewModel = RootViewModel(networkService: networkService, locationService: locationService)
     }
 
     override func tearDown() {
@@ -35,7 +45,33 @@ class RootViewModelTests: XCTestCase {
         // Install Handler
         viewModel.didFetchWeatherData = { (result) in
             if case .success(let weatherData) = result {
-                print(weatherData)
+                
+//                XCTAssertEqual(weatherData.latitude, 6.5833)
+//                XCTAssertEqual(weatherData.longitude, 3.75)
+                
+                // Fulfill Expectation
+                expectation.fulfill()
+            }
+        }
+        
+        // Invoke method under test
+        viewModel.refresh()
+        
+        //Wait for expectation to be fulfilled
+        wait(for: [expectation], timeout: 2.0)
+    }
+    
+    func testRefresh_FailedToFetchLocation() {
+        // Simulate a failed location
+        locationService.location = nil
+        
+        // Define Expectation
+        let expectation = XCTestExpectation(description: "Fetch Weather Data")
+        
+        // Install Handler
+        viewModel.didFetchWeatherData = { (result) in
+            if case .failure(let error) = result {
+                XCTAssertEqual(error, RootViewModel.WeatherDataError.notAuthorizedToRequestLocation)
                 
                 // Fulfill Expectation
                 expectation.fulfill()

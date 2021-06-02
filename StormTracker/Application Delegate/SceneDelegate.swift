@@ -17,7 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let rootViewController = windowScene.windows.first?.rootViewController as? RootViewController {
             let locationManager = LocationManager()
-            let rootViewModel = RootViewModel(locationService: locationManager)
+            let networkManager = NetworkManager()
+            
+            let rootViewModel = RootViewModel(networkService: networkManager, locationService: locationManager)
             rootViewController.viewModel = rootViewModel
         }
         

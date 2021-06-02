@@ -27,12 +27,14 @@ class RootViewModel: NSObject {
     
     var didFetchWeatherData: FetchWeatherDataCompletion?
     
+    private let networkService: NetworkService
     private let locationService: LocationService
     
     // MARK: - Initialization
     
-    init(locationService: LocationService) {
-        
+    init(networkService: NetworkService, locationService: LocationService) {
+        // Set Services
+        self.networkService = networkService
         self.locationService = locationService
         
         super.init()
@@ -55,7 +57,7 @@ class RootViewModel: NSObject {
                 print("Unable to Fetch Location (\(locationServiceError).")
                 
                 // Weather data result
-                let result: WeatherDataResult = .failure(.noWeatherDataAvailable)
+                let result: WeatherDataResult = .failure(.notAuthorizedToRequestLocation)
                 
                 // Invoke completion handler
                 self?.didFetchWeatherData?(result)
@@ -96,8 +98,7 @@ class RootViewModel: NSObject {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = WeatherService.headers
         
-        let session = URLSession.shared
-        let dataTask = session.dataTask(
+        networkService.fetchData(
             with: request as URLRequest,
             completionHandler: { [weak self] (data, response, error) -> Void in
                 if let response = response as? HTTPURLResponse {
@@ -144,8 +145,6 @@ class RootViewModel: NSObject {
                     }
                 }
             })
-        
-        dataTask.resume()
         
     }
 }
