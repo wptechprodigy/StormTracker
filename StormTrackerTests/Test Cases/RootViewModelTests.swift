@@ -160,5 +160,24 @@ class RootViewModelTests: XCTestCase {
         //Wait for expectation to be fulfilled
         wait(for: [expectation], timeout: 2.0)
     }
+    
+    func testApplicationWillEnterForeground_NoTimestamp() {
+        // Reset UserDefault
+        UserDefaults.standard.removeObject(forKey: "didFetchWeatherData")
+        
+        // Define Expectation
+        let expectation = XCTestExpectation(description: "Fetch Weather Data when App is about to Enter Foreground")
+        
+        // Install Handler
+        viewModel.didFetchWeatherData = { (result) in
+                // Fulfill Expectation
+                expectation.fulfill()
+        }
+        
+        NotificationCenter.default.post(name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        //Wait for expectation to be fulfilled
+        wait(for: [expectation], timeout: 2.0)
+    }
 
 }
