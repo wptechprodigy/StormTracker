@@ -37,6 +37,9 @@ class RootViewModelTests: XCTestCase {
 
     override func tearDown() {
         super.tearDown()
+        
+        // Reset UserDefault Storage after testing
+        UserDefaults.standard.removeObject(forKey: "didFetchWeatherData")
     }
     
     func testRefresh() {
@@ -164,6 +167,25 @@ class RootViewModelTests: XCTestCase {
     func testApplicationWillEnterForeground_NoTimestamp() {
         // Reset UserDefault
         UserDefaults.standard.removeObject(forKey: "didFetchWeatherData")
+        
+        // Define Expectation
+        let expectation = XCTestExpectation(description: "Fetch Weather Data when App is about to Enter Foreground")
+        
+        // Install Handler
+        viewModel.didFetchWeatherData = { (result) in
+                // Fulfill Expectation
+                expectation.fulfill()
+        }
+        
+        NotificationCenter.default.post(name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        //Wait for expectation to be fulfilled
+        wait(for: [expectation], timeout: 2.0)
+    }
+    
+    func testApplicationWillEnterForeground_ShouldRefresh() {
+        // Reset UserDefault
+        UserDefaults.standard.set(Date().addingTimeInterval(-3600), forKey: "didFetchWeatherData")
         
         // Define Expectation
         let expectation = XCTestExpectation(description: "Fetch Weather Data when App is about to Enter Foreground")
